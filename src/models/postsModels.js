@@ -15,3 +15,15 @@ export async function getTodosPosts() {
     // Executa a consulta para encontrar todos os documentos na coleção "posts" e converte os resultados para um array.
     return colecao.find().toArray();
 }
+
+// Declara uma função assíncrona chamada `criarPost` que insere um novo post no banco de dados.
+export async function criarPost(novoPost) {
+    // Acessa o banco de dados "Imersao-instabytes" usando a conexão já estabelecida.
+    const db = conexao.db("Imersao-instabytes");
+    
+    // Acessa a coleção "posts" do banco de dados.
+    const colecao = db.collection("posts");
+    
+    // Insere um novo post na coleção "posts" e retorna o resultado da operação.
+    return colecao.insertOne(novoPost);
+}

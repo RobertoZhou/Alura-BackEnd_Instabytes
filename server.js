@@ -1,6 +1,4 @@
 import express from "express";
-
-// Importa o arquivo de rotas 'postsRoutes.js' que contém a definição das rotas para o recurso "posts".
 import routes from "./src/routes/postsRoutes.js";
 
 // Cria uma instância do servidor Express. O 'app' será usado para configurar rotas e middlewares.
