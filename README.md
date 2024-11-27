@@ -8,7 +8,7 @@ Este é o projeto de backend da "Imersão Alura: Instabytes", aonde foi criado u
 - **MongoDB** (banco de dados na nuvem)
 - **VSCode** (Editor de código)
 - **Postman** (Ferramenta para testar a API)
-- 
+
 ## Como Rodar o Projeto
 
 1. **Clone o repositório:**
