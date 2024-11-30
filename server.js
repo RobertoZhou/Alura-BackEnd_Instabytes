@@ -1,16 +1,16 @@
 import express from "express";
 import routes from "./src/routes/postsRoutes.js";
 
-// Cria uma instância do servidor Express. O 'app' será usado para configurar rotas e middlewares.
+// Cria uma instância do servidor Express
 const app = express();
 
-// Chama a função 'routes', passando o objeto 'app' como parâmetro.
-// Isso vai definir as rotas dentro do Express, registrando o que o servidor deve fazer
-// quando uma requisição é feita a determinados caminhos (URLs).
+// Serve arquivos estáticos da pasta 'uploads', permitindo o acesso direto a arquivos como imagens
+app.use(express.static("uploads"));
+
+// Configura as rotas importadas para o aplicativo Express
 routes(app);
 
-// Faz o servidor Express começar a escutar na porta 3000.
-// Quando o servidor estiver pronto, uma mensagem será exibida no console.
+// Inicia o servidor na porta 3000 e exibe uma mensagem no console quando o servidor estiver funcionando
 app.listen(3000, () => {
     console.log("Servidor escutando...");
 });

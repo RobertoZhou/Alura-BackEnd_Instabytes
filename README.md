@@ -1,6 +1,6 @@
-# Imersão Alura: Instabytes - BackEnd
+# Imersão Alura: Instabytes - Backend
 
-Este é o projeto de backend da "Imersão Alura: Instabytes", aonde foi criado uma API simples utilizando JavaScript (Node.js) e JSON. A aplicação usa o MongoDB como banco de dados, com armazenamento na nuvem, para gerenciar as informações dos posts.
+Este é o projeto de backend da "Imersão Alura: Instabytes", onde foi criada uma API simples utilizando JavaScript (Node.js) e JSON. A aplicação utiliza o MongoDB como banco de dados na nuvem para gerenciar as informações dos posts e a API do Gemini para gerar as descrições das imagens.
 
 ## Tecnologias Utilizadas
 
@@ -8,6 +8,7 @@ Este é o projeto de backend da "Imersão Alura: Instabytes", aonde foi criado u
 - **MongoDB** (banco de dados na nuvem)
 - **VSCode** (Editor de código)
 - **Postman** (Ferramenta para testar a API)
+- **Gemini** (API)
 
 ## Como Rodar o Projeto
 

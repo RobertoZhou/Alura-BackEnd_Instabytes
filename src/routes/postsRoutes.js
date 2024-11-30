@@ -1,46 +1,52 @@
-// Importa o módulo 'express', que é um framework para criar aplicações web em Node.js
 import express from "express";
-import { listarPosts, postarNovoPost, uploadImagem } from "../controllers/postsController.js";
+import { listarPosts, postarNovoPost, uploadImagem, atualizarNovoPost } from "../controllers/postsController.js";
 import multer from "multer";
+import cors from "cors";
 
-//  Para Windows
-// Configura o armazenamento para o multer, definindo como os arquivos serão salvos
+// Configurações do CORS, permitindo apenas acesso a partir do endereço "http://localhost:8000"
+const corsOptions = {
+    origin: "http://localhost:8000", // Permite a origem especificada
+    optionsSuccessStatus: 200 // Define o código de sucesso como 200
+}
+
+// Configuração de armazenamento de arquivos utilizando o multer (para Windows)
 const storage = multer.diskStorage({
-    // Define o destino onde os arquivos enviados serão armazenados
+    // Define o diretório onde os arquivos serão armazenados
     destination: function (req, file, cb) {
-        // Chama o callback com null (sem erro) e o diretório 'uploads/' como destino
-        cb(null, 'uploads/');
+        cb(null, 'uploads/'); // A pasta "uploads/" será o destino
     },
-    // Define o nome do arquivo que será salvo
+    // Define o nome do arquivo, mantendo o nome original
     filename: function (req, file, cb) {
-        // Chama o callback com null (sem erro) e o nome original do arquivo
-        cb(null, file.originalname);
+        cb(null, file.originalname); // Mantém o nome do arquivo original
     }
 })
 
-// Configura o multer para usar o armazenamento definido e especifica o diretório de destino
-// Para Windows, define o destino como "./uploads" e utiliza a configuração de armazenamento
+// Cria a instância do multer para realizar o upload de arquivos, configurando o diretório e o nome
 const upload = multer({ dest: "./uploads", storage })
 
-// Para Linux ou Mac, a linha abaixo pode ser utilizada em vez da anterior
-// const upload = multer({ dest: "./uploads"})
+// Caso esteja em um ambiente Linux ou Mac, a configuração alternativa seria a seguinte:
+// const upload = multer({ dest: "./uploads" }) 
 
-
-// Define a função 'routes', que recebe o objeto 'app' como parâmetro
+// Define as rotas para a aplicação
 const routes = (app) => {
-    // Utiliza o middleware express.json() para garantir que o corpo das requisições seja interpretado como JSON
+    // Middleware para analisar dados JSON no corpo das requisições
     app.use(express.json());
-    
-    // Rota para buscar todos os posts, utilizando a função listarPosts como callback
+
+    // Middleware para habilitar o CORS com as configurações definidas
+    app.use(cors(corsOptions));
+
+    // Rota GET para listar todos os posts
     app.get("/posts", listarPosts);
-    
-    // Rota para criar um novo post, utilizando a função postarNovoPost como callback
-    app.post("/posts", postarNovoPost)
-    
-    // Rota para fazer upload de uma imagem, utilizando o middleware do multer para processar o arquivo
-    // 'upload.single("imagem")' indica que apenas um arquivo com o campo 'imagem' será aceito
-    app.post("/upload", upload.single("imagem"), uploadImagem)
+
+    // Rota POST para criar um novo post
+    app.post("/posts", postarNovoPost);
+
+    // Rota POST para realizar o upload de uma imagem (espera um arquivo com o nome "imagem" no corpo da requisição)
+    app.post("/upload", upload.single("imagem"), uploadImagem);
+
+    // Rota PUT para atualizar um post (requer o ID do post na URL)
+    app.put("/upload/:id", atualizarNovoPost);
 }
 
-// Exporta a função 'routes' como o módulo padrão, permitindo que seja utilizada em outros arquivos
+// Exporta as rotas para serem usadas na configuração do servidor
 export default routes;
