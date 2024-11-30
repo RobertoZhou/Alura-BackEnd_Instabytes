@@ -16,3 +16,7 @@ Este é o projeto de backend da "Imersão Alura: Instabytes", onde foi criada um
 
    ```bash
    git clone https://github.com/RobertoZhou/Alura-BackEnd_Instabytes.git
+
+2. **Iniciar servidor(cmd):**
+   ```bash
+   npm run dev
