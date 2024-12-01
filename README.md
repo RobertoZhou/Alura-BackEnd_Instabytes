@@ -15,7 +15,7 @@ Este é o projeto de backend da "Imersão Alura: Instabytes", onde foi criada um
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/RobertoZhou/Alura-BackEnd_Instabytes.git
+   git clone https://github.com/RobertoZhou/Alura-BackEnd_Instabytes
 
 3. **Criar um arquivo chamado .env com os seguintes informações:**
    ```bash
