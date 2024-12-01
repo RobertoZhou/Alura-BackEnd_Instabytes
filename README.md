@@ -19,7 +19,7 @@ Este é o projeto de backend da "Imersão Alura: Instabytes", onde foi criada um
 
 3. **Criar um arquivo chamado .env com os seguintes informações:**
 ```bash
-   STRING_CONEXAO = mongodb+srv://<Nome do Banco de Dados>:<Senha do Banco de dados>@cluster0.udoyj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+   STRING_CONEXAO = <Conexão ao Banco de dados>
 
    GEMINI_API_KEY = <KEY da API do Gemini>
 ```
