@@ -18,11 +18,11 @@ Este é o projeto de backend da "Imersão Alura: Instabytes", onde foi criada um
    git clone https://github.com/RobertoZhou/Alura-BackEnd_Instabytes.git
 
 3. **Criar um arquivo chamado .env com os seguintes informações:**
-```bash
+   ```bash
    STRING_CONEXAO = <Conexão ao Banco de dados>
 
    GEMINI_API_KEY = <KEY da API do Gemini>
-```
+   ```
 
 2. **Iniciar servidor(cmd):**
    ```bash
